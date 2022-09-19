@@ -3,7 +3,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 
@@ -21,5 +23,14 @@ public class CopierShould {
 		new Copier(source, destination).Copy();
 
 		verify(destination).SetChar('M');
+	}
+	@Test
+	public void
+	copies_two_char() {
+		given(source.GetChar()).willReturn('M', 'C');
+
+		new Copier(source, destination).Copy();
+
+		assertThat(destination.getCharStore()).isEqualTo("MC");
 	}
 }
