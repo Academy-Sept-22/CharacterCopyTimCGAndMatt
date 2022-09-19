@@ -8,6 +8,9 @@ public class Copier {
 	}
 	public void Copy() {
 		char sourceCharacter = source.GetChar();
-		destination.SetChar(sourceCharacter);
+		while (sourceCharacter != '\n') {
+			destination.SetChar(sourceCharacter);
+			sourceCharacter = source.GetChar();
+		}
 	}
 }
