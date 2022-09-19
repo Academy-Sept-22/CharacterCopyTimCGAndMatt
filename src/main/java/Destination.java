@@ -1,3 +1,3 @@
-public interface IDestination {
+public interface Destination {
 		void SetChar(char character);
 }
